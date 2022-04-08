@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import { MainTemplate } from './ui/templates/main';
+import { BasicNavbar } from './ui/templates/shared/BasicNavbar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<MainTemplate navbar={<BasicNavbar />}>main content</MainTemplate>
+		</div>
+	);
 }
 
 export default App;
