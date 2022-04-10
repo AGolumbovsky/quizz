@@ -1,3 +1,5 @@
+import { MyStack } from './MyStack';
+
 export const MainTemplate = ({ children, navbar }) => {
 	return (
 		<div>

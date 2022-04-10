@@ -13,9 +13,14 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 export const BasicNavbar = () => {
-	const pages = ['Quizzes', 'Cards', 'Blog'];
+	const pages = [
+		{ name: 'Quizzes', path: '/quizzes' },
+		{ name: 'Cards', path: '/cards' },
+		{ name: 'Blog', path: '/blog' },
+	];
 	const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 	const [anchorElNav, setAnchorElNav] = useState(null);
@@ -79,8 +84,10 @@ export const BasicNavbar = () => {
 							}}
 						>
 							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{page}</Typography>
+								<MenuItem key={page.name} onClick={handleCloseNavMenu}>
+									<Link to={page.path}>
+										<Typography textAlign="center">{page.name}</Typography>
+									</Link>
 								</MenuItem>
 							))}
 						</Menu>
@@ -96,11 +103,13 @@ export const BasicNavbar = () => {
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page) => (
 							<Button
-								key={page}
+								key={page.name}
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: 'white', display: 'block' }}
 							>
-								{page}
+								<Link to={page.path}>
+									<Typography textAlign="center">{page.name}</Typography>
+								</Link>
 							</Button>
 						))}
 					</Box>

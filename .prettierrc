@@ -4,5 +4,5 @@
     "tabWidth": 2,
     "useTabs": true,
     "printWidth": 90,
-    "endOfLine": "lf"
+    "endOfLine": "crlf"
 }
