@@ -1,11 +1,6 @@
-import { Paper, Stack } from '@mui/material';
+import { Accordion } from '../shared/ui/Accordion';
+import { TopicList } from '../widgets/TopicList';
 
 export const QuizzesPage = () => {
-	return (
-		<Stack spacing={2}>
-			<Paper>Quiz 1</Paper>
-			<Paper>Quiz 2</Paper>
-			<Paper>Quiz 3</Paper>
-		</Stack>
-	);
+	return <TopicList />;
 };

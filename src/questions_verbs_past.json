@@ -1,0 +1,68 @@
+{
+    "questions": [
+
+        {
+            "question": "What is BE in past?",
+            "id": "1",
+            "options": [
+                {
+                    "id": "1",
+                    "value": "WAS"
+                },
+                {
+                    "id": "2",
+                    "value": "ARE"
+                },
+                {
+                    "id": "3",
+                    "value": "IS"
+                }
+            ],
+            "correctAnswerId": "1"
+                      
+        },
+
+        {
+            "question": "What is DO in past?",
+            "id": "2",
+            "options": [
+                {
+                    "id": "1",
+                    "value": "DOES"
+                },
+                {
+                    "id": "2",
+                    "value": "DID"
+                },
+                {
+                    "id": "3",
+                    "value": "DOED"
+                }
+            ],
+            "correctAnswerId": "2"
+                      
+        },
+
+        {
+            "question": "Which verb is in past?",
+            "id": "3",
+            "options": [
+                {
+                    "id": "1",
+                    "value": "WERE"
+                },
+                {
+                    "id": "2",
+                    "value": "ARE"
+                },
+                {
+                    "id": "3",
+                    "value": "DOES"
+                }
+            ],
+            "correctAnswerId": "1"
+                      
+        }
+                
+    ]
+}

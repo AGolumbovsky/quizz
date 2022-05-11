@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import { BlogPage } from './pages/Blog';
+import { CardsPage } from './pages/Cards';
 import { HomePage } from './pages/Home';
 import { QuizzesPage } from './pages/Quizzes';
-import { MainTemplate } from './ui/templates/main';
-import { BasicNavbar } from './ui/templates/shared/BasicNavbar';
+import { MainTemplate } from './shared/ui/templates/main';
+import { BasicNavbar } from './shared/ui/BasicNavbar';
+import { QuizPage } from './pages/Quiz';
 
 function App() {
 	return (
@@ -11,6 +14,9 @@ function App() {
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="quizzes" element={<QuizzesPage />} />
+					<Route path="cards" element={<CardsPage />} />
+					<Route path="blog" element={<BlogPage />} />
+					<Route path="quiz/:id" element={<QuizPage />} />
 				</Routes>
 			</MainTemplate>
 		</div>
