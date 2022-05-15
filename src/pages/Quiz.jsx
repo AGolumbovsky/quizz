@@ -6,9 +6,7 @@ export const QuizPage = () => {
 	console.log(params);
 	return (
 		<div>
-			some text above quiz
 			<Quiz />
-			some text below quiz
 		</div>
 	);
 };

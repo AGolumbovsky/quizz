@@ -1,5 +1,5 @@
 import { Accordion } from '../../shared/ui/Accordion';
-export const TopicList = () => {
+export const TopicsList = () => {
 	const topics = [
 		{
 			title: 'Verbs in Present',

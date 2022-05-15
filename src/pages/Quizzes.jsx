@@ -1,6 +1,6 @@
 import { Accordion } from '../shared/ui/Accordion';
-import { TopicList } from '../widgets/TopicList';
+import { TopicsList } from '../widgets/TopicsList';
 
 export const QuizzesPage = () => {
-	return <TopicList />;
+	return <TopicsList />;
 };
