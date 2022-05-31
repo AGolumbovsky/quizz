@@ -4,6 +4,7 @@
         {
             "question": "What is BE in present?",
             "id": "1",
+            "correctAnswerId": "3",
             "options": [
                 {
                     "id": "1",
@@ -17,14 +18,14 @@
                     "id": "3",
                     "value": "IS"
                 }
-            ],
-            "correctAnswerId": "3"
+            ]
                       
         },
 
         {
             "question": "What is DO in present?",
             "id": "2",
+            "correctAnswerId": "1",
             "options": [
                 {
                     "id": "1",
@@ -38,14 +39,14 @@
                     "id": "3",
                     "value": "DOED"
                 }
-            ],
-            "correctAnswerId": "1"
+            ]
                       
         },
 
         {
             "question": "Which verb is in present?",
             "id": "3",
+            "correctAnswerId": "2",
             "options": [
                 {
                     "id": "1",
@@ -59,8 +60,7 @@
                     "id": "3",
                     "value": "DID"
                 }
-            ],
-            "correctAnswerId": "2"
+            ]
                       
         }
                 
