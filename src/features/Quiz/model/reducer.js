@@ -13,6 +13,11 @@ export const reducer = (state = initialState, action) => {
 				currentQuestion: action.payload.questions[0],
 			};
 
+		case 'quiz/DUMMY':
+			return {
+				...state,
+				dumDum: action.payload,
+			};
 		default:
 			return state;
 	}

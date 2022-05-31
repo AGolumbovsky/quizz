@@ -29,6 +29,15 @@ export const TopicsList = () => {
 				{ id: 7, name: 'quiz 3: SHOULD' },
 			],
 		},
+		{
+			title: 'Negations',
+			description: 'A collection of quizzes on negations with NOT and other elements',
+			quizzes: [
+				{ id: 8, name: 'quiz 1: NOT' },
+				{ id: 9, name: 'quiz 2: NEVER, NOBODY, NO, etc' },
+				{ id: 10, name: 'quiz 3: no double negation' },
+			],
+		},
 	];
 
 	return (
