@@ -1,4 +1,8 @@
-const initialState = { quiz: null, currentQuestion: null, currentQuestionIndex: 0 };
+const initialState = {
+	quiz: null,
+	currentQuestion: null,
+	currentQuestionIndex: 0,
+};
 
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
