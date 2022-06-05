@@ -5,9 +5,5 @@ import { StartScreen } from '../features/Quiz/ui/StartScreen';
 import { api } from '../shared/api';
 
 export const QuizPage = () => {
-	return (
-		<div>
-			<Quiz />
-		</div>
-	);
+	return <Quiz />;
 };
