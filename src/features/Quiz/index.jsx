@@ -29,7 +29,7 @@ export const Quiz = () => {
 			return <StartScreen onNextStep={onNextStep} />;
 		}
 		if (currentStep === 1) {
-			return <CurrentQuestion />;
+			return <CurrentQuestion onNextStep={onNextStep} />;
 		}
 		if (currentStep === 2) {
 			return <EndOfQuiz />;
