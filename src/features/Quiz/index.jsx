@@ -8,6 +8,7 @@ import { render } from '@testing-library/react';
 import { useState } from 'react';
 import { CurrentQuestion } from './ui/CurrentQuestion';
 import { StartScreen } from './ui/StartScreen';
+import { EndOfQuiz } from './ui/EndofQuiz';
 
 export const Quiz = () => {
 	const [currentStep, setCurrentStep] = useState(0);
@@ -19,20 +20,23 @@ export const Quiz = () => {
 		console.log('quiz I got is:', quiz);
 		dispatch(quizActions.setData(quiz));
 	}, [params.id]);
-	console.log(params);
+	console.log('params are:', params);
 
-	console.log(currentStep);
+	console.log('current state is:', currentStep);
 
 	const render = () => {
 		if (currentStep === 0) {
 			return <StartScreen onNextStep={onNextStep} />;
 		}
 		if (currentStep === 1) {
-			return <div>Current Question</div>;
+			return <CurrentQuestion />;
+		}
+		if (currentStep === 2) {
+			return <EndOfQuiz />;
 		}
 	};
 	const onNextStep = () => {
-		console.log('onNextStep is working');
+		console.log('onNextStep has happened');
 		setCurrentStep((prevState) => ++prevState); // pochitayyyy pro ++
 	};
 	return <div>{render()}</div>;
