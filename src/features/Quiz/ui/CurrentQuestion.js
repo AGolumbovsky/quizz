@@ -1,10 +1,15 @@
 import { Typography } from '@mui/material';
+import questions from '../../../questions_verbs_present';
 
 export const CurrentQuestion = (props) => {
-	const questions = ['Question 1', 'Question 2', 'Question 3'];
-	const listQuestions = questions.map((question) => (
-		<Typography key={question}>{question}</Typography>
-	));
+	console.log('questions is:', questions);
+	const qs = JSON.parse(questions.questions);
+	console.log('questions after JSONing:', qs);
+
+	// const listQuestions = questions.map((question) => (
+	// 	<Typography key={question}>{questions.question}</Typography>
+	// ));
+
 	const onNext = () => {
 		console.log('now what?');
 		return <div>Now What?</div>;
