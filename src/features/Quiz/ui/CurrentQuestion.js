@@ -11,7 +11,7 @@ export const CurrentQuestion = (props) => {
 	// ));
 
 	const onNext = () => {
-		console.log('now what?');
+		console.log('next, now what?');
 		return <div>Now What?</div>;
 	};
 	const onPrev = () => {
