@@ -1,30 +1,38 @@
 import { Typography } from '@mui/material';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import questions from '../../../questions_verbs_present';
+import { actions } from '../model/actions';
 
 export const CurrentQuestion = (props) => {
-	console.log('questions is:', questions);
-	const qs = JSON.parse(questions.questions);
-	console.log('questions after JSONing:', qs);
+	// console.log('questions is:', questions);
+	// // const qs = JSON.parse(questions.questions);
+	// console.log('questions after JSONing:', qs);
 
-	const [currentQuestion, setCurrentQuestion] = useState('Idontknowwhatimdoing');
+	const currentQuestion = useSelector((state) => state.quizReducer.currentQuestion);
+	console.log('data is', currentQuestion);
+
+	const dispatch = useDispatch();
 
 	// const listQuestions = questions.map((question) => (
 	// 	<Typography key={question}>{questions.question}</Typography>
 	// ));
 
 	const onNext = () => {
-		console.log('next, now what?');
-		return <div>Now What?</div>;
+		console.log('IncrementQuestionIndex is dispatched');
+		dispatch(actions.incrementCurrentQuestionIndex());
 	};
 	const onPrev = () => {
-		console.log("let's go back");
-		return <div>Back to square one </div>;
+		console.log('IncrementQuestionIndex is dispatched');
+		dispatch(actions.decrementCurrentQuestionIndex());
 	};
 	return (
 		<div>
-			<Typography>Question Content</Typography>
-			{listQuestions}
-			<Typography>question What</Typography>
+			<Typography>{currentQuestion.question}</Typography>
+			<br></br>
+			{currentQuestion.options.map((option) => {
+				return <Typography key={option.id}>{option.value}</Typography>;
+			})}
 			<Typography>question Yeah</Typography>
 			<button onClick={onPrev}>Previous</button>
 			<button>Answer</button>

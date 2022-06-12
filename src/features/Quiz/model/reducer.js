@@ -13,13 +13,21 @@ export const reducer = (state = initialState, action) => {
 				currentQuestion: action.payload.questions[0],
 			};
 
-		// trial and error code
-		case 'quiz/SET_QUESTION':
+		case 'quiz/INCREMENT_QUESTION_INDEX':
+			console.log('state is:', state);
 			return {
 				...state,
-				question: action.payload,
-				// currentQuestion: action.payload.something.maybe
+				currentQuestionIndex: state.currentQuestionIndex + 1,
+				currentQuestion: state.quiz.questions[state.currentQuestionIndex + 1],
 			};
+
+		case 'quiz/DECREMENT_QUESTION_INDEX':
+			return {
+				...state,
+				currentQuestionIndex: state.currentQuestionIndex - 1,
+				currentQuestion: state.quiz.questions[state.currentQuestionIndex - 1],
+			};
+
 		default:
 			return state;
 	}
