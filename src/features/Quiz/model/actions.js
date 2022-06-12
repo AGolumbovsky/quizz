@@ -4,4 +4,8 @@ export const actions = {
 		type: 'quiz/INCREMENT_QUESTION_INDEX',
 		payload,
 	}),
+	decrementCurrentQuestionIndex: (payload) => ({
+		type: 'quiz/DECREMENT_QUESTION_INDEX',
+		payload,
+	}),
 };

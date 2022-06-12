@@ -22,6 +22,7 @@ export const reducer = (state = initialState, action) => {
 			};
 
 		case 'quiz/DECREMENT_QUESTION_INDEX':
+			console.log('state is:', state);
 			return {
 				...state,
 				currentQuestionIndex: state.currentQuestionIndex - 1,
