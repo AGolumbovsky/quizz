@@ -23,7 +23,7 @@ export const CurrentQuestion = (props) => {
 		dispatch(actions.incrementCurrentQuestionIndex());
 	};
 	const onPrev = () => {
-		console.log('IncrementQuestionIndex is dispatched');
+		console.log('DecrementQuestionIndex is dispatched');
 		dispatch(actions.decrementCurrentQuestionIndex());
 	};
 	return (
