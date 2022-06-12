@@ -6,6 +6,8 @@ export const CurrentQuestion = (props) => {
 	const qs = JSON.parse(questions.questions);
 	console.log('questions after JSONing:', qs);
 
+	const [currentQuestion, setCurrentQuestion] = useState('Idontknowwhatimdoing');
+
 	// const listQuestions = questions.map((question) => (
 	// 	<Typography key={question}>{questions.question}</Typography>
 	// ));

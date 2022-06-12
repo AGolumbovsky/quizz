@@ -13,6 +13,7 @@ export const reducer = (state = initialState, action) => {
 				currentQuestion: action.payload.questions[0],
 			};
 
+		// trial and error code
 		case 'quiz/SET_QUESTION':
 			return {
 				...state,
