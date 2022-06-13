@@ -8,9 +8,10 @@ export const CurrentQuestion = (props) => {
 	// console.log('questions is:', questions);
 	// // const qs = JSON.parse(questions.questions);
 	// console.log('questions after JSONing:', qs);
-
+	const currentState = useSelector((state) => state);
+	console.log('current state end of quiz is:', state);
 	const currentQuestion = useSelector((state) => state.quizReducer.currentQuestion);
-	console.log('data is', currentQuestion);
+	console.log('current question is', currentQuestion);
 
 	const dispatch = useDispatch();
 
