@@ -22,7 +22,7 @@ export const Quiz = () => {
 	}, [params.id]);
 	console.log('params are:', params);
 
-	console.log('current step is:', currentStep);
+	console.log('current step in index.js is:', currentStep);
 
 	const render = () => {
 		if (currentStep === 0) {

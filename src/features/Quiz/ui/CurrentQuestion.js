@@ -9,9 +9,17 @@ export const CurrentQuestion = (props) => {
 	// // const qs = JSON.parse(questions.questions);
 	// console.log('questions after JSONing:', qs);
 	const currentState = useSelector((state) => state);
-	console.log('current state end of quiz is:', currentState);
 	const currentQuestion = useSelector((state) => state.quizReducer.currentQuestion);
+	const currentQuestionId = useSelector((state) => state.quizReducer.currentQuestion.id);
+	const lastQuestionIndex = useSelector(
+		(state) => state.quizReducer.quiz.questions.length
+	);
+	const currentStep = useSelector((state) => state.quizReducer.currentStep); // nice try
+
+	console.log('current state in CurrentQuestion is:', currentState);
 	console.log('current question is', currentQuestion);
+	console.log('last question is(esli ugadaesh):', lastQuestionIndex);
+	console.log('current step is:', currentStep); // not there, first appeared in index.js
 
 	const dispatch = useDispatch();
 
@@ -19,7 +27,9 @@ export const CurrentQuestion = (props) => {
 	// 	<Typography key={question}>{questions.question}</Typography>
 	// ));
 
-	const onNext = () => {
+	const onNext = (props) => {
+		if (currentStep == 2) console.log('GREAT SUCKSASS!!!', props.onNextStep);
+		console.log('props in CurrentQuestion is:', props);
 		console.log('IncrementQuestionIndex is dispatched');
 		dispatch(actions.incrementCurrentQuestionIndex());
 	};
@@ -37,7 +47,9 @@ export const CurrentQuestion = (props) => {
 			<Typography>question Yeah</Typography>
 			<button onClick={onPrev}>Previous</button>
 			<button>Answer</button>
-			<button onClick={onNext}>Next</button>
+			<button onClick={currentQuestionId < lastQuestionIndex ? onNext : props.onNextStep}>
+				Next
+			</button>
 		</div>
 	);
 };
