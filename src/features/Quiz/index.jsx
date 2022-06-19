@@ -13,14 +13,17 @@ import { EndOfQuiz } from './ui/EndofQuiz';
 export const Quiz = () => {
 	const [currentStep, setCurrentStep] = useState(0);
 
-	const params = useParams();
+	// const params = useParams();
 	const dispatch = useDispatch();
 	useEffect(() => {
-		const quiz = api.getQuiz(params.id);
+		const quiz = api.getQuiz(1); // use useParams()
 		console.log('quiz I got is:', quiz);
 		dispatch(quizActions.setData(quiz));
-	}, [params.id]);
-	console.log('params are:', params);
+		return () => {
+			// this will execute just before the component unmounts
+		};
+	}, [1]);
+	// console.log('params are:', params);
 
 	console.log('current step in index.js is:', currentStep);
 

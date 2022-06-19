@@ -10,31 +10,33 @@ export const CurrentQuestion = (props) => {
 	// console.log('questions after JSONing:', qs);
 	const currentState = useSelector((state) => state);
 	const currentQuestion = useSelector((state) => state.quizReducer.currentQuestion);
-	const currentQuestionId = useSelector((state) => state.quizReducer.currentQuestion.id);
+	const currentQuestionIndex = useSelector(
+		(state) => state.quizReducer.currentQuestionIndex
+	);
 	const lastQuestionIndex = useSelector(
-		(state) => state.quizReducer.quiz.questions.length
+		(state) => state.quizReducer.quiz.questions.length - 1 // change to state.quizReducer.quiz.lastQuestionIndex
 	);
 	const currentStep = useSelector((state) => state.quizReducer.currentStep); // nice try
 
-	console.log('current state in CurrentQuestion is:', currentState);
-	console.log('current question is', currentQuestion);
-	console.log('last question is(esli ugadaesh):', lastQuestionIndex);
-	console.log('current step is:', currentStep); // not there, first appeared in index.js
+	// console.log('current state in CurrentQuestion is:', currentState);
+	// console.log('current question is', currentQuestion);
+	// console.log('last question is(esli ugadaesh):', lastQuestionIndex);
+	// console.log('current step is:', currentStep); // not there, first appeared in index.js
 
 	const dispatch = useDispatch();
 
 	// const listQuestions = questions.map((question) => (
 	// 	<Typography key={question}>{questions.question}</Typography>
 	// ));
-
+	console.log({ currentQuestionIndex, lastQuestionIndex });
 	const onNext = (props) => {
 		if (currentStep == 2) console.log('GREAT SUCKSASS!!!', props.onNextStep);
-		console.log('props in CurrentQuestion is:', props);
-		console.log('IncrementQuestionIndex is dispatched');
+		// console.log('props in CurrentQuestion is:', props);
+		// console.log('IncrementQuestionIndex is dispatched');
 		dispatch(actions.incrementCurrentQuestionIndex());
 	};
 	const onPrev = () => {
-		console.log('DecrementQuestionIndex is dispatched');
+		// console.log('DecrementQuestionIndex is dispatched');
 		dispatch(actions.decrementCurrentQuestionIndex());
 	};
 	return (
@@ -47,7 +49,9 @@ export const CurrentQuestion = (props) => {
 			<Typography>question Yeah</Typography>
 			<button onClick={onPrev}>Previous</button>
 			<button>Answer</button>
-			<button onClick={currentQuestionId < lastQuestionIndex ? onNext : props.onNextStep}>
+			<button
+				onClick={currentQuestionIndex < lastQuestionIndex ? onNext : props.onNextStep}
+			>
 				Next
 			</button>
 		</div>
