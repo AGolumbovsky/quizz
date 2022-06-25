@@ -13,7 +13,9 @@ import { EndOfQuiz } from './ui/EndofQuiz';
 export const Quiz = () => {
 	const [currentStep, setCurrentStep] = useState(0);
 
-	// const params = useParams();
+	const params = useParams();
+	console.log('params is:', params);
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const quiz = api.getQuiz(1); // use useParams()
@@ -21,6 +23,7 @@ export const Quiz = () => {
 		dispatch(quizActions.setData(quiz));
 		return () => {
 			// this will execute just before the component unmounts
+			// clean up the state HERE
 		};
 	}, [1]);
 	// console.log('params are:', params);

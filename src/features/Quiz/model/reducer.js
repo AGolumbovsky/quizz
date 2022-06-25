@@ -11,6 +11,7 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				quiz: action.payload,
 				currentQuestion: action.payload.questions[0],
+				lastQuestionIndex: action.payload.questions.length - 1,
 			};
 
 		case 'quiz/INCREMENT_QUESTION_INDEX':
