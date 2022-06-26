@@ -1,4 +1,6 @@
 export const actions = {
+	resetState: () => ({ type: 'quiz/RESET_STATE' }),
+
 	setData: (payload) => ({ type: 'quiz/SET_QUIZ', payload }),
 
 	incrementCurrentQuestionIndex: (payload) => ({

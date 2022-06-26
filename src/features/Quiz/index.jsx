@@ -26,6 +26,9 @@ export const Quiz = () => {
 		return () => {
 			// this will execute just before the component unmounts
 			// clean up the state HERE
+			console.log('trying to clean up after useEffect');
+			dispatch(quizActions.resetState()); // What am I doing and why? idk
+			console.log('after cleanup of Quiz, the quiz is:', quiz);
 		};
 	}, [params.id]); // I replaced [1] with something weird; look here first if shit's BROKEN
 	// console.log('params are:', params);
