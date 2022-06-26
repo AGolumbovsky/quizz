@@ -15,17 +15,19 @@ export const Quiz = () => {
 
 	const params = useParams();
 	console.log('params is:', params);
+	console.log('params.id is', params.id);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		const quiz = api.getQuiz(1); // use useParams()
+		const quiz = api.getQuiz(Number(params.id)); // use useParams()
+		console.log('params.id is the same as number:', 1 == params.id);
 		console.log('quiz I got is:', quiz);
 		dispatch(quizActions.setData(quiz));
 		return () => {
 			// this will execute just before the component unmounts
 			// clean up the state HERE
 		};
-	}, [1]);
+	}, [params.id]); // I replaced [1] with something weird; look here first if shit's BROKEN
 	// console.log('params are:', params);
 
 	console.log('current step in index.js is:', currentStep);
