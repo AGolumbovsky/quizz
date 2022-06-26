@@ -1,8 +1,9 @@
-import { Typography } from '@mui/material';
+import { RadioGroup, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import questions from '../../../questions_verbs_present';
 import { actions } from '../model/actions';
+import RadioButtonGroup from './RadioButtonGroup';
 
 export const CurrentQuestion = (props) => {
 	// console.log('questions is:', questions);
@@ -22,7 +23,6 @@ export const CurrentQuestion = (props) => {
 	console.log('last question index is:', lastQuestionIndex);
 	const currentStep = useSelector((state) => state.quizReducer.currentStep); // nice try
 
-	// console.log('current state in CurrentQuestion is:', currentState);
 	// console.log('current question is', currentQuestion);
 	// console.log('last question is(esli ugadaesh):', lastQuestionIndex);
 	// console.log('current step is:', currentStep); // not there, first appeared in index.js
@@ -33,24 +33,27 @@ export const CurrentQuestion = (props) => {
 	console.log({ currentQuestionIndex, lastQuestionIndex });
 	const onNext = (props) => {
 		if (currentStep == 2) console.log('GREAT SUCKSASS!!!', props.onNextStep);
-		// console.log('props in CurrentQuestion is:', props);
-		// console.log('IncrementQuestionIndex is dispatched');
 		dispatch(actions.incrementCurrentQuestionIndex());
 	};
 	const onPrev = () => {
 		// console.log('DecrementQuestionIndex is dispatched');
 		dispatch(actions.decrementCurrentQuestionIndex());
 	};
+
+	const onSelectAnswer = (answer) => {
+		console.log('answer is:', { answer });
+	};
+
 	return (
 		<div>
 			<Typography>{currentQuestion.question}</Typography>
 			<br></br>
+			<RadioButtonGroup onChange={onSelectAnswer} />
 			{currentQuestion.options.map((option) => {
 				return <Typography key={option.id}>{option.value}</Typography>;
 			})}
 			<Typography>question Yeah</Typography>
 			<button onClick={onPrev}>Previous</button>
-			<button>Answer</button>
 			<button
 				onClick={currentQuestionIndex < lastQuestionIndex ? onNext : props.onNextStep}
 			>

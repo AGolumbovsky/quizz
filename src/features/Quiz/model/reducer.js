@@ -8,7 +8,7 @@ export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'quiz/RESET_STATE':
 			return {
-				state: initialState,
+				...initialState,
 			};
 		case 'quiz/SET_QUIZ':
 			return {
