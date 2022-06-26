@@ -18,6 +18,7 @@ export const Quiz = () => {
 	console.log('params.id is', params.id);
 
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		const quiz = api.getQuiz(Number(params.id)); // use useParams()
 		console.log('params.id is the same as number:', 1 == params.id);
