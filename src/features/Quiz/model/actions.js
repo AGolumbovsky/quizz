@@ -3,6 +3,11 @@ export const actions = {
 
 	setData: (payload) => ({ type: 'quiz/SET_QUIZ', payload }),
 
+	setCurrentQuestion: (payload) => ({
+		type: 'quiz/SET_CURRENT_QUESTION',
+		payload,
+	}),
+
 	incrementCurrentQuestionIndex: (payload) => ({
 		type: 'quiz/INCREMENT_QUESTION_INDEX',
 		payload,
