@@ -2,6 +2,7 @@ const initialState = {
 	quiz: null,
 	currentQuestion: null,
 	currentQuestionIndex: 0,
+	isFromReview: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -22,6 +23,12 @@ export const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				currentQuestionIndex: action.payload,
+			};
+
+		case 'quiz/TOGGLE_REVIEW_QUESTION':
+			return {
+				...state,
+				isFromReview: action.payload,
 			};
 
 		case 'quiz/INCREMENT_QUESTION_INDEX':

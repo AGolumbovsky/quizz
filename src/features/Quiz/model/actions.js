@@ -7,6 +7,10 @@ export const actions = {
 		type: 'quiz/SET_CURRENT_QUESTION',
 		payload,
 	}),
+	toggleReviewQuestion: (payload) => ({
+		type: 'quiz/TOGGLE_REVIEW_QUESTION',
+		payload,
+	}),
 
 	incrementCurrentQuestionIndex: (payload) => ({
 		type: 'quiz/INCREMENT_QUESTION_INDEX',

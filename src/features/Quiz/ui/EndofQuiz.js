@@ -13,6 +13,7 @@ export const EndOfQuiz = () => {
 
 		dispatch(actions.setCurrentQuestion(id));
 		// dispatch({ type: 'quiz/SET_CURRENT_QUESTION', currentQuestionIndex: 8 });
+		// dispatch(actions.toggleReviewQuestion(true));
 	};
 
 	return (
