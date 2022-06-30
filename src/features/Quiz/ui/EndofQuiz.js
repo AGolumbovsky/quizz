@@ -22,7 +22,7 @@ export const EndOfQuiz = () => {
 			<Typography>End of Quiz</Typography>
 			{questions.map((question) => {
 				return (
-					<Typography onClick={handleGoToReviewQuestion(question.id)}>
+					<Typography onClick={() => handleGoToReviewQuestion(question.id)}>
 						{question.question}
 					</Typography>
 				);
