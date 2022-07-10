@@ -3,6 +3,7 @@ const initialState = {
 	currentQuestion: null,
 	currentQuestionIndex: 0,
 	isFromReview: false,
+	userAnswers: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -43,6 +44,12 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				currentQuestionIndex: state.currentQuestionIndex - 1,
 				currentQuestion: state.quiz.questions[state.currentQuestionIndex - 1],
+			};
+
+		case 'quiz/ADD_USER_ANSWER':
+			return {
+				...state,
+				userAnswers: [...state.userAnswers, action.payload], // fix the bug: when user reviews the answer, it will add it again
 			};
 
 		default:

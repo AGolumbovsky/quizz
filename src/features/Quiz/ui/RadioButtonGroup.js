@@ -25,14 +25,22 @@ function MyFormControlLabel(props) {
 	return <StyledFormControlLabel checked={checked} {...props} />;
 }
 
-export default function RadioButtonGroup({ onChange }) {
+export default function RadioButtonGroup({ onChange, options, activeValue }) {
 	const handleOnChange = (event, value) => {
 		onChange(value);
 	};
+
 	return (
-		<RadioGroup name="use-radio-group" defaultValue="first" onChange={handleOnChange}>
-			<MyFormControlLabel value="firstlakdflkdf" label="First" control={<Radio />} />
-			<MyFormControlLabel value="second" label="Second" control={<Radio />} />
+		<RadioGroup name="use-radio-group" value={activeValue} onChange={handleOnChange}>
+			{options.map((option) => {
+				return (
+					<MyFormControlLabel
+						value={option.id}
+						label={option.value}
+						control={<Radio />}
+					/>
+				);
+			})}
 		</RadioGroup>
 	);
 }

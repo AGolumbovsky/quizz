@@ -21,4 +21,6 @@ export const actions = {
 		type: 'quiz/DECREMENT_QUESTION_INDEX',
 		payload,
 	}),
+
+	// ADD_USER_ANSWER
 };

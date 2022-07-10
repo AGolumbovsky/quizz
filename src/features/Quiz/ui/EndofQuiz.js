@@ -7,6 +7,7 @@ export const EndOfQuiz = () => {
 	const dispatch = useDispatch();
 	const questions = useSelector((state) => state.quizReducer.quiz.questions);
 	console.log('questions is:', questions);
+	let isAnswered = false;
 
 	const handleGoToReviewQuestion = (id) => {
 		console.log(id);
@@ -22,7 +23,10 @@ export const EndOfQuiz = () => {
 			<Typography>End of Quiz</Typography>
 			{questions.map((question) => {
 				return (
-					<Typography onClick={() => handleGoToReviewQuestion(question.id)}>
+					<Typography
+						style={isAnswered ? { backgroundColor: 'blue' } : { backgroundColor: 'red' }}
+						onClick={() => handleGoToReviewQuestion(question.id)}
+					>
 						{question.question}
 					</Typography>
 				);

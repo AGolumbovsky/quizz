@@ -16,6 +16,8 @@ export const CurrentQuestion = (props) => {
 	);
 	const dispatch = useDispatch();
 
+	const [currentValue, setCurrentValue] = useState(null);
+
 	const lastQuestionIndex = useSelector(
 		// (state) => state.quizReducer.quiz.questions.length - 1 // change to state.quizReducer.quiz.lastQuestionIndex
 		(state) => state.quizReducer.lastQuestionIndex
@@ -23,17 +25,11 @@ export const CurrentQuestion = (props) => {
 	console.log('last question index is:', lastQuestionIndex);
 	const currentStep = useSelector((state) => state.quizReducer.currentStep); // nice try
 
-	// console.log('current question is', currentQuestion);
-	// console.log('last question is(esli ugadaesh):', lastQuestionIndex);
-	// console.log('current step is:', currentStep); // not there, first appeared in index.js
-
-	// const listQuestions = questions.map((question) => (
-	// 	<Typography key={question}>{questions.question}</Typography>
-	// ));
 	console.log({ currentQuestionIndex, lastQuestionIndex });
 	const onNext = (props) => {
-		if (currentStep == 2) console.log('GREAT SUCKSASS!!!', props.onNextStep);
 		dispatch(actions.incrementCurrentQuestionIndex());
+
+		setCurrentValue(null);
 	};
 	const onPrev = () => {
 		// console.log('DecrementQuestionIndex is dispatched');
@@ -42,17 +38,20 @@ export const CurrentQuestion = (props) => {
 
 	const onSelectAnswer = (answer) => {
 		console.log('answer is:', { answer });
+		setCurrentValue(answer);
+		console.log('curent answer value is:', answer);
 	};
 
 	return (
 		<div>
 			<Typography>{currentQuestion.question}</Typography>
 			<br></br>
-			<RadioButtonGroup onChange={onSelectAnswer} />
-			{currentQuestion.options.map((option) => {
-				return <Typography key={option.id}>{option.value}</Typography>;
-			})}
-			<Typography>question Yeah</Typography>
+			<RadioButtonGroup
+				onChange={onSelectAnswer}
+				options={currentQuestion.options}
+				activeValue={currentValue}
+			/>
+
 			<button onClick={onPrev}>Previous</button>
 			<button
 				onClick={currentQuestionIndex < lastQuestionIndex ? onNext : props.onNextStep}
